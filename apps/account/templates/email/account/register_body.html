@@ -1,0 +1,73 @@
+<table
+  cellspacing="10"
+  cellpadding="10"
+  style="
+    font-family: 'Helvetica', sans-serif;
+    font-size: 11pt;
+    line-height: 25px;
+    word-spacing: 2.5px;
+    letter-spacing: 0.7px;
+    max-width: 800px;
+  "
+>
+  <tr>
+    <td>
+      <span>Greetings !</span><br /><br />
+      Thank you for creating an account at {% if protocol %} https://{{domain}}/
+      {% else %}http://{{domain}}/{% endif %}. You can now view and access all features at this site. Please make sure to confirm, {{email}}, as the email you would use as your
+      account's username to experience site's full benefits.
+      <strong>
+        Note that this verification email expires in one hour after it was sent.
+      </strong>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <div style="padding: 25px 0px">
+        {% if protocol %}
+        <a
+          href="https://{{domain}}/email?verify_email={{ token }}"
+          style="
+            padding: 15px 20px;
+            background-color: #f44336;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+          "
+        >
+          Verify Email Address
+        </a>
+        {% else %}
+        <a
+          href="http://{{domain}}/email?verify_email={{ token }}"
+          style="
+            padding: 15px 20px;
+            background-color: #f44336;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+          "
+        >
+          Verify Email Address
+        </a>
+        {% endif %}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Or, paste this link on your browser: {% if protocol %}
+      <!-- prettier-ignore -->
+      https://{{domain}}/email?verify_email={{ token }} {% else %}
+      http://{{domain}}/email?verify_email={{ token }} {% endif %}
+    </td>
+  </tr>
+  <tr>
+    <td style="color: grey">
+      If you did not create an account using this email address, just ignore or
+      delete this message.
+    </td>
+  </tr>
+</table>
